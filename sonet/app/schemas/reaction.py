@@ -9,18 +9,30 @@ class Emoji(Enum):
 
 
 class ReactionBase(BaseModel):
-    emoji: str
+    emoji: str = Field(default=Emoji.ok)
 
 
 class ReactionCreate(ReactionBase):
-    emoji: str = Field(default=Emoji.ok)
+    author_id: int
     post_id: int
 
 
-class Reaction(ReactionBase):
+class ReactionUpdate(ReactionBase):
+    emoji: str = None
+
+
+class ReactionInDBBase(ReactionBase):
     id: int
     author_id: int
     post_id: int
 
     class Config:
         orm_mode = True
+
+
+class Reaction(ReactionInDBBase):
+    pass
+
+
+class ReactionInDB(ReactionInDBBase):
+    pass
