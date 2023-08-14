@@ -27,6 +27,7 @@ sqlalchemy = "^2.0.19"
 aiofiles = "^23.1.0"
 websockets = "^11.0.3"
 tenacity = "^8.2.2"
+alembic = "^1.11.2"
 
 
 [build-system]
